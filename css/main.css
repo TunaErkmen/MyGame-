@@ -8,8 +8,10 @@ body {
     display: flex;
     background-color: lightcoral;
 }
-h1 {
- text-align: center;
+header h1 {
+   background-color: antiquewhite;
+   
+
 }
 
 img{
@@ -17,8 +19,8 @@ img{
 }
 
 .memory-game {
-    width: 640px;
-    height: 640px;
+    width: 500px;
+    height: 500px;
     margin: auto;
     display: flex;
     flex-wrap:wrap ;
@@ -59,3 +61,5 @@ img{
 .front-face {
     transform: rotateY(180deg);
 }
+
+

@@ -1,16 +1,15 @@
 * {
-    margin: 0;
-    padding: 0;
+    
     box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body {
-    height:100vh;
+    height:100vh; 
     display: flex;
-    background-color: lightcoral;
+    background-color: #f4c531;
 }
 header h1 {
-   background-color: antiquewhite;
-   
+   background-color: antiquewhite
 
 }
 
@@ -22,23 +21,28 @@ img{
     width: 500px;
     height: 500px;
     margin: auto;
+    justify-content: center;
+    box-sizing: border-box;
     display: flex;
     flex-wrap:wrap ;
-    perspective: 1000px;
+    perspective: 1000px; /*3D effect*/
+    background-color: #ffff;
+    border-radius: 6px;
+
 }
 
 .memory-card {
-    width: calc(25% - 10px);
-    height: calc(33%-10px);
+    width: calc(25% - 10px);  /* it has 4 cards each row */
+    height: calc(33.33%-10px); /* it has 3 rows */
     margin: 5px;
     position: relative;
     transform: scale(1);
-   transform-style: preserve-3d;
-   transition: transform .5s;
+   transform-style: preserve-3d; /*3D effect*/
+   transition: all .5s ease; /*3D effect*/
 }
 
-.memory-card:active {
-    transform: scale(.95);
+.memory-card:active { /*click effect*/
+    transform: scale(.97);
     transition: transform .2s;
 }
 
@@ -55,11 +59,58 @@ img{
     position: absolute;
     border-radius: 5px;
     background-color: pink;
-    backface-visibility: hidden;
+    backface-visibility: hidden; /*every img has backface visibility, I need to hide it*/
 }
 
 .front-face {
     transform: rotateY(180deg);
+}
+
+.game-container {
+    position: relative;
+    width:100%;
+    display: grid;
+
+    
+}
+/*
+.controls-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+} */
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 16px 24px;
+    cursor: pointer;
+}
+
+#stop {
+font-size: 17px;
+display : flex ;
+margin: 17px auto 17px auto;
+background-color: pink;
+color: black;
+}
+
+#start {
+    font-size: 17px;
+    display : flex ;
+    margin: 17px auto 17px auto;
+    background-color: pink;
+    color: black;
+    }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 

@@ -8,10 +8,25 @@
   </head>
   <body>
     
-    <div class="message-board">
-        <p>Truthy Fruity Memory Game</p>
-        <button class="play-button game-button"></button>
-    </div>
+    <div class="wrapper">
+    <div class="score">
+      <h3>Score:</h3>
+       <p id="total-score"> 0 </p>
+      </div>
+
+    <div id="moves-count">Moves</div>
+    
+    <div id="time"></div>
+
+    <div class="game-container"></div>
+
+    <button id="stop" class="hide">Stop Game</button>
+  </div>
+
+  <div class="controls-container">
+    <p class="result"></p>
+    <button id="start">Start Game</button>
+  </div>
 
     <section class="memory-game">
       <div class="memory-card" data-framework="apple">
@@ -64,17 +79,18 @@
         <img class="back-face" src="./images/Yellow_card.png" alt="back-face">
     </div>
 
-    <div class="memory-card" data-framework="strawberry">
+    <div class="memory-card" data-framework="watermelon">
         <img class="front-face" src="./images/watermelon.png" alt="watermelon">
         <img class="back-face" src="./images/Yellow_card.png" alt="back-face">
     </div>
 
-    <div class="memory-card" data-framework="strawberry">
+    <div class="memory-card" data-framework="watermelon">
         <img class="front-face" src="./images/watermelon.png" alt="watermelon">
         <img class="back-face" src="./images/Yellow_card.png" alt="back-face">
     </div>
 
     </section>
+
     <script src="./js/main.js"></script>
   </body>
 </html>

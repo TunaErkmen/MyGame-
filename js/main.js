@@ -11,6 +11,7 @@ class MemoryGame {
     this.seconds = 0 ;
     this.minutes = 0 ;
     this.movesCount = 0 ;
+    this.scoreCount = 0 ;
     this.timer= null;
 
     this.shuffleCards();
@@ -20,7 +21,10 @@ class MemoryGame {
     this.pauseButton.addEventListener('click',() => {
       this.pause();
     } )
-  
+
+    this.startButton.addEventListener('click', () => {
+        this.start();
+    } )
   }
 
   shuffleCards() {
@@ -33,6 +37,8 @@ class MemoryGame {
   addEventListeners() {
     this.cards.forEach(card => card.addEventListener('click', () => {
       this.flipCard(card);
+
+      
     }));
   }
 
@@ -62,6 +68,7 @@ class MemoryGame {
 
     if (isMatched) {
       this.disableCards();
+      this.getScore();
 
       
     } else {
@@ -115,22 +122,21 @@ class MemoryGame {
     }
     
 
-/*start() {
-  this.startButton.addEventListener('click', () => {
-    this.movesCount = 0 ;
-    this.minutes = 0 ;
-    this.seconds = 0 ;
+start() {
+
     this.timeGenerator();
 
-  });
-
 }
-*/
 
 pause() {
-  clearInterval(this.timer)
+  clearInterval(this.timer);
+  this.unflipCards();
   }
  
-
+getScore () {
+  this.scoreCount += 10 ;
+  let score = document.getElementById("total-score");
+  score.innerHTML = `Score:${this.scoreCount}`;
+}
 }
 new MemoryGame();

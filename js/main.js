@@ -16,6 +16,10 @@ class MemoryGame {
     this.shuffleCards();
     this.addEventListeners();
     this.timeGenerator();
+
+    this.pauseButton.addEventListener('click',() => {
+      this.pause();
+    } )
   
   }
 
@@ -124,10 +128,7 @@ class MemoryGame {
 */
 
 pause() {
-  this.pauseButton.addEventListener('click',() => {
-    this.timeGeneratorElm.innerHTML.clearInterval(this.timer);
-  } )
-  
+  clearInterval(this.timer)
   }
  
 

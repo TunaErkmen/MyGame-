@@ -41,7 +41,9 @@ class MemoryGame {
       // second click
       this.hasFlippedCard = false;
       this.secondCard = card;
+      this.countMoves(); //increment moves when user selected second card
       this.checkForMatch();
+      
 
     }
   }
@@ -51,8 +53,11 @@ class MemoryGame {
 
     if (isMatched) {
       this.disableCards();
+
+      
     } else {
       this.unflipCards();
+
     }
   }
 
@@ -77,10 +82,9 @@ class MemoryGame {
   }
 
   countMoves() {
-   let movesCount = 0;
-    movesCount +=1;
+    this.movesCount ++;
     let moves = document.getElementById("moves-count");
-   moves.innerHTML = `<span> Moves:</span>${movesCount}`;
+    moves.innerHTML = `<span> Moves:</span>${this.movesCount}`;
    
   }
 

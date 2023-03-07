@@ -1,3 +1,3 @@
-# MyGame
+# Truthy Fruity
 
-coming soon..
+It's my #first game that I created. 

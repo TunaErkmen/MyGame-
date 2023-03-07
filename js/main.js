@@ -2,7 +2,8 @@ class MemoryGame {
   constructor() {
     this.cards = document.querySelectorAll('.memory-card');
     this.startButton = document.getElementById("start");
-    this.timeValue =  document.getElementById("time");
+    this.pauseButton = document.getElementById("pause");
+    this.timeGeneratorElm =  document.getElementById("time");
     this.hasFlippedCard = false;
     this.lockBoard = false;
     this.firstCard = null;
@@ -10,10 +11,12 @@ class MemoryGame {
     this.seconds = 0 ;
     this.minutes = 0 ;
     this.movesCount = 0 ;
+    this.timer= null;
 
     this.shuffleCards();
     this.addEventListeners();
     this.timeGenerator();
+  
   }
 
   shuffleCards() {
@@ -91,100 +94,42 @@ class MemoryGame {
   }
 
   timeGenerator() {
-     this.seconds ++;
-  if (seconds >= 60){
-    this.minutes += 1 ;
-    this.seconds = 0 ;
-  }
-  let secondsValue = seconds < 10 ? `0${this.seconds}` : this.seconds ;
-  let minutesValue = minutes < 10 ? `0${this.minutes}` : this.minutes ;
-  this.timeValue.innerHTML = `<span> Time:</span> ${minutesValue} : ${secondsValue}`;
-}
+    
+    this.timer = setInterval(() => {
+    this.timeGeneratorElm.innerHTML = `Time : 00:0${this.seconds}`;
+    this.seconds ++ ; 
+    if (this.seconds >= 10) {
+      this.timeGeneratorElm.innerHTML = `Time : 00:${this.seconds}`;
+    }
+    if(this.seconds >= 60) {
+      this.minutes++;
+      this.timeGeneratorElm.innerHTML = `Time : 0${this.minutes}:${this.seconds}`;
+      this.seconds = 0;
+      this.seconds++;
+    }
+    }, 1000 ) // each second
+    }
+    
 
-
-start() {
+/*start() {
   this.startButton.addEventListener('click', () => {
+    this.movesCount = 0 ;
+    this.minutes = 0 ;
+    this.seconds = 0 ;
     this.timeGenerator();
+
   });
 
 }
-stop() {
-  const stopButton = document.getElementById("stop");
+*/
 
-}
-
-  }
-
+pause() {
+  this.pauseButton.addEventListener('click',() => {
+    this.timeGeneratorElm.innerHTML.clearInterval(this.timer);
+  } )
   
+  }
+ 
 
-
-
+}
 new MemoryGame();
-
-
-
-
-/*const cards = document.querySelectorAll('.memory-card');
-let hasFlippedCard = false ;
-let lockBoard = false;
-let firstCard, secondCard;
-
-
-
-function flipCard () {
-   if(lockBoard) return ;
-   if (this === firstCard) return ;
-
-   this.classList.toggle('flip');
-
-   if(!hasFlippedCard){
-    //first click
-    hasFlippedCard = true;
-    firstCard= this;
-   } else {
-    //second click
-    hasFlippedCard=false;
-    secondCard= this;
-    checkForMatch();
-   }
-}
-
-   function checkForMatch() {
-      let isMatched = firstCard.dataset.framework === secondCard.dataset.framework;
-    if(isMatched){
-      disableCards();
-    } else {
-      unflipCards(); 
-   }
-}
-
-function disableCards(){
-   firstCard.removeEventListener('click' , flipCard);
-   secondCard.removeEventListener('click' , flipCard);
-   resetBoard();
-}
-
-function unflipCards() {
-   lockBoard = true;
-   setTimeout(()=>{
-      firstCard.classList.remove('flip');
-      secondCard.classList.remove('flip');
-
-      resetBoard();
-   },1500 );
-}
-
-function resetBoard() {
-   [hasFlippedCard, lockBoard] = [false, false];
-   [firstCard,secondCard] = [null, null];
-}
-
-//IIFE example :
-(function shuffle() {
-   cards.forEach(card => {
-let randomPosition = Math.floor(Math.random() * 12 );
-card.style.order = randomPosition;
-   });
-}) ();
-
-cards.forEach (card => card.addEventListener('click',flipCard )) */

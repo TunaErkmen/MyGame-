@@ -1,6 +1,8 @@
 class MemoryGame {
   constructor() {
     this.cards = document.querySelectorAll('.memory-card');
+    this.startButton = document.getElementById("start");
+    this.timeValue =  document.getElementById("time");
     this.hasFlippedCard = false;
     this.lockBoard = false;
     this.firstCard = null;
@@ -8,10 +10,10 @@ class MemoryGame {
     this.seconds = 0 ;
     this.minutes = 0 ;
     this.movesCount = 0 ;
-    this.winCount = 0;
 
     this.shuffleCards();
     this.addEventListeners();
+    this.timeGenerator();
   }
 
   shuffleCards() {
@@ -89,26 +91,21 @@ class MemoryGame {
   }
 
   timeGenerator() {
-    const timeValue = document.getElementById("time");
-     this.seconds += 1;
+     this.seconds ++;
   if (seconds >= 60){
-    minutes += 1 ;
-    seconds = 0 ;
+    this.minutes += 1 ;
+    this.seconds = 0 ;
   }
-  let secondsValue = seconds < 10 ? `0${seconds}` : seconds ;
-  let minutesValue = minutes < 10 ? `0${minutes}` : minutes ;
-  timeValue.innerHTML = `<span> Time:</span> ${minutesValue} : ${secondsValue}`;
+  let secondsValue = seconds < 10 ? `0${this.seconds}` : this.seconds ;
+  let minutesValue = minutes < 10 ? `0${this.minutes}` : this.minutes ;
+  this.timeValue.innerHTML = `<span> Time:</span> ${minutesValue} : ${secondsValue}`;
 }
 
-
-//Initialize values and func calls 
-initializer (){
-  result.innerText = "";
-  this.winCount;
-}
 
 start() {
-  const startButton = document.getElementById("start");
+  this.startButton.addEventListener('click', () => {
+    this.timeGenerator();
+  });
 
 }
 stop() {

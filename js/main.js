@@ -59,8 +59,8 @@ class MemoryGame {
       this.countMoves(); //increment moves when user selected second card
       this.checkForMatch();
       
-
     }
+  
   }
 
   checkForMatch() {
@@ -100,7 +100,9 @@ class MemoryGame {
   countMoves() {
     this.movesCount ++;
     let moves = document.getElementById("moves-count");
-    moves.innerHTML = `<span> Moves:</span>${this.movesCount}`;
+    moves.innerHTML = `Moves :${this.movesCount}`;
+
+   
    
   }
 
@@ -125,18 +127,33 @@ class MemoryGame {
 start() {
 
     this.timeGenerator();
-
+    this.playAudio();
+    this.flipCard();
 }
 
 pause() {
   clearInterval(this.timer);
   this.unflipCards();
+  this.playAudio();
   }
  
 getScore () {
   this.scoreCount += 10 ;
   let score = document.getElementById("total-score");
-  score.innerHTML = `Score:${this.scoreCount}`;
+  score.innerHTML = `Score :${this.scoreCount}`;
+  if(this.scoreCount == 60){
+    window.location.href = "./level2.html";
+  }
 }
+
+playAudio() {
+  let sound = new Audio("../sounds/click.mp3");
+  sound.play();
+}
+
+newGame(){
+
+}
+
 }
 new MemoryGame();

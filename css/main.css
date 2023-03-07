@@ -1,12 +1,14 @@
 * {
     
     box-sizing: border-box;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Chewy', cursive;
+    font-size: 30px;
 }
 body {
     height:100vh; 
     display: flex;
     background-color: #f4c531;
+    
 }
 header h1 {
    background-color: antiquewhite
@@ -101,22 +103,18 @@ button {
     cursor: pointer;
     display: flex;
     align-items: center;
-}
-
-#pause {
-font-size: 17px;
-display : flex ;
-margin: 17px;
-background-color: pink;
-color: black;
-}
-
-#start {
+    transition-duration: 0.4s;
+    background-color: pink;
     font-size: 17px;
     display : flex ;
     margin: 17px;
-    background-color: pink;
-    color: black;
-    }
+    color: ffff;
+    
+}
+
+button:hover{
+    box-shadow: 0 8px 16px 0 rgba(172, 78, 78, 0.24),0 17px 50px 0 rgba(0,0,0,0.19); 
+}
+
 
 

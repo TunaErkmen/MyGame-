@@ -18,6 +18,7 @@ class MemoryGame {
     this.addEventListeners();
     this.timeGenerator();
 
+
     this.pauseButton.addEventListener('click',() => {
       this.pause();
     } )
@@ -86,6 +87,7 @@ class MemoryGame {
   unflipCards() {
     this.lockBoard = true;
     setTimeout(() => {
+      
       this.firstCard.classList.remove('flip');
       this.secondCard.classList.remove('flip');
       this.resetBoard();
@@ -101,9 +103,6 @@ class MemoryGame {
     this.movesCount ++;
     let moves = document.getElementById("moves-count");
     moves.innerHTML = `Moves :${this.movesCount}`;
-
-   
-   
   }
 
   timeGenerator() {
@@ -126,15 +125,14 @@ class MemoryGame {
 
 start() {
 
-    this.timeGenerator();
-    this.playAudio();
-    this.flipCard();
+  this.timeGenerator();
+   this.lockBoard=false;
 }
 
 pause() {
   clearInterval(this.timer);
-  this.unflipCards();
-  this.playAudio();
+this.lockBoard = true ;
+  
   }
  
 getScore () {
@@ -146,10 +144,6 @@ getScore () {
   }
 }
 
-playAudio() {
-  let sound = new Audio("../sounds/click.mp3");
-  sound.play();
-}
 
 newGame(){
 

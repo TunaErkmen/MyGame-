@@ -160,7 +160,7 @@ getScore () {
   score.innerHTML = `Score :${this.scoreCount}`;
   if(this.scoreCount == 60){
     localStorage.setItem("maxScore", this.scoreCount);
-    window.location.href = "../gameover.html";
+    window.location.href = "gameover.html";
     
   }
   

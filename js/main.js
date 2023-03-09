@@ -6,7 +6,7 @@ class MemoryGame {
     this.pauseButton = document.getElementById("pause");
     this.timeGeneratorElm =  document.getElementById("time");
     this.screen = document.getElementById("message-board");
-    this.sound = new Audio("./../sounds/click.mp3");
+    this.sound = new Audio(".././sounds/click.mp3");
     this.hasFlippedCard = false;
     this.lockBoard = false;
     this.firstCard = null;

@@ -2,8 +2,11 @@ class MemoryGame {
   constructor() {
     this.cards = document.querySelectorAll('.memory-card');
     this.startButton = document.getElementById("start");
+    this.resumeButton = document.getElementById("resume");
     this.pauseButton = document.getElementById("pause");
     this.timeGeneratorElm =  document.getElementById("time");
+    this.screen = document.getElementById("message-board");
+    this.sound = new Audio("./../sounds/click.mp3");
     this.hasFlippedCard = false;
     this.lockBoard = false;
     this.firstCard = null;
@@ -17,14 +20,24 @@ class MemoryGame {
     this.shuffleCards();
     this.addEventListeners();
     this.timeGenerator();
-
+    
 
     this.pauseButton.addEventListener('click',() => {
       this.pause();
+      this.playAudio();
+      
+     
     } )
-
+    this.resumeButton.addEventListener('click', () => {
+      this.resume();
+      this.playAudio();
+   
+  } )
+    
     this.startButton.addEventListener('click', () => {
         this.start();
+        this.playAudio();
+     
     } )
   }
 
@@ -124,14 +137,18 @@ class MemoryGame {
     
 
 start() {
+   this.hideScreen();
+}
 
+resume () {
   this.timeGenerator();
-   this.lockBoard=false;
+  this.lockBoard=false;
 }
 
 pause() {
   clearInterval(this.timer);
 this.lockBoard = true ;
+
   
   }
  
@@ -144,10 +161,15 @@ getScore () {
   }
 }
 
-
-newGame(){
-
+playAudio () {
+  this.sound.play();
 }
+
+hideScreen() {
+  this.screen.style.display = "none";
+}
+
 
 }
 new MemoryGame();
+

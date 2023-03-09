@@ -1,6 +1,8 @@
 class MemoryGame {
   constructor() {
     this.cards = document.querySelectorAll('.memory-card');
+    this.cardBoard= document.getElementById('memory-game');
+    this.controlBoard = document.getElementById('total-container');
     this.startButton = document.getElementById("start");
     this.resumeButton = document.getElementById("resume");
     this.pauseButton = document.getElementById("pause");
@@ -167,7 +169,11 @@ playAudio () {
 
 hideScreen() {
   this.screen.style.display = "none";
+  this.cardBoard.style.display = "flex";
+  this.controlBoard.style.display = "flex";
 }
+
+
 
 
 }

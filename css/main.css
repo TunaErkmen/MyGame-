@@ -20,13 +20,12 @@ img{
     width: 100px;
 }
 
-.memory-game {
+#memory-game {
     width: 500px;
     height: 500px;
     margin: auto;
     justify-content: center;
     box-sizing: border-box;
-    display: flex;
     flex-wrap:wrap ;
     perspective: 1000px; /*3D effect*/
     background-color: #ffff;
@@ -69,7 +68,7 @@ img{
     transform: rotateY(180deg);
 }
 
-.total-container {
+#total-container {
     display: flex;
     flex-direction: column;
     justify-content: center;

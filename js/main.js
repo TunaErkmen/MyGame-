@@ -159,8 +159,11 @@ getScore () {
   let score = document.getElementById("total-score");
   score.innerHTML = `Score :${this.scoreCount}`;
   if(this.scoreCount == 60){
-    window.location.href = "./level2.html";
+    localStorage.setItem("maxScore", this.scoreCount);
+    window.location.href = "../gameover.html";
+    
   }
+  
 }
 
 playAudio () {

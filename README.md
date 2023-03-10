@@ -19,7 +19,7 @@ In this game, you'll see twelve cards laid out randomly on a board. Your goal is
 Here iş the link that you can check my demo version of my game :arrow_right:
  [Truthy Fruity]( https://tunaerkmen.github.io/MyGame-/)
 
- ## Further Improvements
+ ## :paperclip: Further Improvements
  - Add Level 2, 
  - Add more cards and time limit,
  - Make the game responsive,

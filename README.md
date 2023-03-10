@@ -8,7 +8,7 @@ The trivial memory game project is a great chance to integrate your knowledge of
 ## :clipboard: How to play 
 In this game, you'll see twelve cards laid out randomly on a board. Your goal is to keep flipping over pairs of cards until you've matched all six pairs.
 
-- Each card has a different fru on one side. The objective is to find all six pairs of matching cards by turning over two cards at a time.
+- Each card has a different fruits on one side. The objective is to find all six pairs of matching cards by turning over two cards at a time.
 - On each turn, you'll flip over one card to reveal the symbol on its other side.
 - Then, you'll flip over a second card to see if it matches the first card.
 - If the cards match, they'll stay face-up on the board. If not, both cards will be turned back over to their hidden state.

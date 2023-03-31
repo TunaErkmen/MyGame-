@@ -16,7 +16,7 @@ In this game, you'll see twelve cards laid out randomly on a board. Your goal is
 
 
 ## :rocket: Demo 
-Here iş the link that you can check my demo version of my game :arrow_right:
+Here is the link that you can check my demo version of my game :arrow_right:
  [Truthy Fruity]( https://tunaerkmen.github.io/MyGame-/)
 
  ## :paperclip: Further Improvements
